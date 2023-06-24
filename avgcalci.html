@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+input[type="button"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  background-color: #0056b3;
+}
+
+    </style>>
+<head>
+  <title>Test Marks Calculator</title>
+  <script type="text/javascript">
+    function calculateAverage() {
+      var registerNumber = document.getElementById("registerNumber").value;
+      var subjectCode = document.getElementById("subjectCode").value;
+      var test1 = parseInt(document.getElementById("test1").value);
+      var test2 = parseInt(document.getElementById("test2").value);
+      var test3 = parseInt(document.getElementById("test3").value);
+
+      if (registerNumber === "") {
+        alert("Please enter a register number");
+        return;
+      }
+
+      if (subjectCode === "") {
+        alert("Please enter a subject code");
+        return;
+      }
+
+      if (isNaN(test1) || isNaN(test2) || isNaN(test3)) {
+        alert("Please enter valid marks for all tests");
+        return;
+      }
+
+      var average = (test1 + test2 + test3 - Math.min(test1, test2, test3)) / 2;
+      alert("Average Marks: " + average);
+    }
+  </script>
+</head>
+<body>
+  <h1>Test Marks Calculator</h1>
+  <form>
+    <label for="registerNumber">Register Number:</label>
+    <input type="text" id="registerNumber" />
+
+    <label for="subjectCode">Subject Code:</label>
+    <input type="text" id="subjectCode" />
+
+    <label for="test1">Test 1:</label>
+    <input type="text" id="test1" />
+
+    <label for="test2">Test 2:</label>
+    <input type="text" id="test2" />
+
+    <label for="test3">Test 3:</label>
+    <input type="text" id="test3" />
+
+    <input type="button" value="Calculate Average" onclick="calculateAverage()" />
+  </form>
+</body>
+</html>
